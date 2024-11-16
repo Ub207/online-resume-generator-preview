@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Input Live Update</title>
+</head>
+<body>
+    <h1>Resume Builder</h1>
+
+    <!-- Form Input -->
+    <form>
+        <label>Name:</label>
+        <input type="text" id="name" placeholder="Enter your name"><br><br>
+
+        <label>Email:</label>
+        <input type="email" id="email" placeholder="Enter your email"><br><br>
+
+        <label>Skills:</label>
+        <input type="text" id="skills" placeholder="Your skills (comma separated)"><br><br>
+    </form>
+
+    <!-- Preview of Resume -->
+    <h2>Resume Preview</h2>
+    <div>
+        <p><strong>Name:</strong> <span id="preview-name">Your Name</span></p>
+        <p><strong>Email:</strong> <span id="preview-email">Your Email</span></p>
+        <p><strong>Skills:</strong> <span id="preview-skills">Your Skills</span></p>
+    </div>
+
+    <!-- JavaScript Directly in HTML -->
+    <script>
+        // Form elements ko select karna
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const skillsInput = document.getElementById('skills');
+
+        // Preview elements ko select karna
+        const previewName = document.getElementById('preview-name');
+        const previewEmail = document.getElementById('preview-email');
+        const previewSkills = document.getElementById('preview-skills');
+
+        // Event listeners lagaye gaye hain taki form ka data change hotay hi preview update ho
+        nameInput.addEventListener('input', () => {
+            previewName.textContent = nameInput.value || "Your Name";
+        });
+
+        emailInput.addEventListener('input', () => {
+            previewEmail.textContent = emailInput.value || "Your Email";
+        });
+
+        skillsInput.addEventListener('input', () => {
+            previewSkills.textContent = skillsInput.value || "Your Skills";
+        });
+    </script>
+</body>
+</html>
